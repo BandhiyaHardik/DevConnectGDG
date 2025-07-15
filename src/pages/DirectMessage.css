@@ -1,0 +1,30 @@
+.direct-message-page {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.chat-header {
+  margin-bottom: 12px;
+}
+.chat-input-row {
+  display: flex;
+  margin-top: 12px;
+}
+.chat-input-row input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+.chat-input-row button {
+  margin-left: 8px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: #4299e1;
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}

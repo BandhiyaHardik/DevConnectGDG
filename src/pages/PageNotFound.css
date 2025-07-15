@@ -1,0 +1,15 @@
+.pagenotfound-container {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.pagenotfound-container h1 {
+  font-size: 6rem;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+}
+
+.pagenotfound-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
