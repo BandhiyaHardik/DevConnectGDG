@@ -1,0 +1,349 @@
+@import '../../styles/theme.css';
+
+.recommend-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.recommend-modal {
+  background: #ffffff;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 25rem;
+  max-height: 37.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  animation: scaleIn 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.recommend-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  border-bottom: 1px solid #edf2f7;
+  position: relative;
+}
+
+.recommend-modal-header h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  color: #2d3748;
+  font-weight: 600;
+  position: relative;
+}
+
+.recommend-modal-header h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 2rem;
+  height: 0.2rem;
+  background: linear-gradient(to right, #4299e1, #63b3ed); /* Softer blue gradient */
+  border-radius: 4px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.125rem;
+  color: #718096;
+  cursor: pointer;
+  padding: 0.25rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.close-button:hover {
+  background-color: #f7fafc;
+  color: #4a5568;
+  transform: rotate(90deg);
+}
+
+.recommend-modal-body {
+  padding: 1.25rem;
+}
+
+.search-friends {
+  margin-bottom: 1rem;
+}
+
+.search-friends input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  background-color: #ffffff;
+  color: #2d3748;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.search-friends input:focus {
+  outline: none;
+  border-color: #4299e1; /* Softer blue */
+  box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.15); /* Softer blue shadow */
+}
+
+.search-friends input::placeholder {
+  color: #cbd5e0;
+  opacity: 0.7;
+}
+
+.friends-list {
+  max-height: 18.75rem;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.friends-list::-webkit-scrollbar {
+  width: 0.375rem;
+}
+
+.friends-list::-webkit-scrollbar-track {
+  background: #f7fafc;
+  border-radius: 0.5rem;
+}
+
+.friends-list::-webkit-scrollbar-thumb {
+  background-color: #cbd5e0;
+  border-radius: 0.5rem;
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #edf2f7;
+  transition: background-color 0.2s;
+}
+
+.friend-item:hover {
+  background-color: #f7fafc;
+}
+
+.friend-item img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.friend-item span {
+  flex: 1;
+  font-weight: 500;
+  color: #2d3748;
+  font-size: 0.9375rem;
+}
+
+.recommend-to-friend-btn {
+  background: linear-gradient(to right, #4299e1, #3182ce); /* Softer blue gradient */
+  color: white;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.1); /* Softer blue shadow */
+}
+
+.recommend-to-friend-btn:hover {
+  background: linear-gradient(to right, #3182ce, #2c5282); /* Slightly darker on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2);
+}
+
+.recommend-to-friend-btn:active {
+  transform: translateY(0);
+}
+
+.recommend-sent {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: #48BB78;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.recommend-sent i {
+  font-size: 0.875rem;
+}
+
+.no-friends-message {
+  text-align: center;
+  color: #718096;
+  font-size: 0.9375rem;
+  padding: 1.5rem 0;
+}
+
+.recommend-modal-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #edf2f7;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancel-button {
+  background-color: #f7fafc;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+  padding: 0.625rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-button:hover {
+  background-color: #edf2f7;
+}
+
+/* Dark mode styles */
+.dark-mode .recommend-modal {
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+.dark-mode .recommend-modal-header {
+  border-bottom-color: #374151;
+}
+
+.dark-mode .recommend-modal-header h3 {
+  color: #f9fafb;
+}
+
+.dark-mode .close-button {
+  color: #9ca3af;
+}
+
+.dark-mode .close-button:hover {
+  background-color: #374151;
+  color: #f9fafb;
+}
+
+.dark-mode .search-friends input {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+.dark-mode .search-friends input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.25);
+}
+
+.dark-mode .search-friends input::placeholder {
+  color: #9ca3af;
+}
+
+.dark-mode .friends-list::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.dark-mode .friends-list::-webkit-scrollbar-thumb {
+  background-color: #6b7280;
+}
+
+.dark-mode .friend-item {
+  border-bottom-color: #374151;
+}
+
+.dark-mode .friend-item:hover {
+  background-color: #282f3d;
+}
+
+.dark-mode .friend-item span {
+  color: #f9fafb;
+}
+
+.dark-mode .recommend-to-friend-btn {
+  background: linear-gradient(to right, #60a5fa, #3b82f6);
+}
+
+.dark-mode .recommend-to-friend-btn:hover {
+  background: linear-gradient(to right, #3b82f6, #2563eb);
+}
+
+.dark-mode .recommend-sent {
+  color: #4ade80;
+}
+
+.dark-mode .no-friends-message {
+  color: #9ca3af;
+}
+
+.dark-mode .recommend-modal-footer {
+  border-top-color: #374151;
+}
+
+.dark-mode .cancel-button {
+  background-color: #374151;
+  color: #d1d5db;
+  border-color: #4b5563;
+}
+
+.dark-mode .cancel-button:hover {
+  background-color: #4b5563;
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+  .recommend-modal {
+    width: 95%;
+    max-height: 70vh;
+  }
+  
+  .recommend-modal-header {
+    padding: 1rem;
+  }
+  
+  .recommend-modal-body {
+    padding: 1rem;
+  }
+  
+  .friends-list {
+    max-height: 16rem;
+  }
+  
+  .friend-item {
+    padding: 0.625rem 0;
+  }
+  
+  .friend-item img {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}

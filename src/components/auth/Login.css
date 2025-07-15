@@ -1,0 +1,550 @@
+@import '../../styles/theme.css';
+
+/* Container for the login page */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  background-color: #f8fafc; /* Lighter background */
+  position: relative;
+}
+
+/* Decorative background elements */
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(99, 179, 237, 0.05) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(72, 187, 120, 0.05) 0%, transparent 20%);
+  pointer-events: none;
+}
+
+/* Main card that holds the login form */
+.login-card {
+  width: 100%;
+  max-width: 480px;
+  padding: 3rem 2.5rem;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* Header styling */
+.login-card h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
+  position: relative;
+  display: inline-block;
+}
+
+.login-card h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 2.5rem;
+  height: 0.25rem;
+  background: linear-gradient(to right, #4299e1, #63b3ed); /* Softer blue gradient */
+  border-radius: 4px;
+}
+
+.login-subtitle {
+  color: #718096;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Error message styling */
+.error-message {
+  background-color: rgba(245, 101, 101, 0.08);
+  border-left: 4px solid #f56565;
+  color: #e53e3e;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.error-message i {
+  font-size: 1.125rem;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Add margin below error for spacing */
+.auth-error {
+  margin-bottom: 1.2rem;
+}
+
+/* Form styling */
+.form-group {
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #2d3748;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #4299e1; /* Softer blue */
+  box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.15); /* Softer blue shadow */
+}
+
+.form-group input::placeholder {
+  color: #cbd5e0;
+  opacity: 0.7;
+}
+
+/* GitHub authentication specific styles */
+.auth-mode-toggle {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.auth-mode-btn {
+  flex: 1;
+  padding: 0.75rem;
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #718096;
+}
+
+.auth-mode-btn.active {
+  background-color: #24292e;
+  color: #ffffff;
+}
+
+.auth-mode-btn:not(.active):hover {
+  background-color: #f7fafc;
+}
+
+.github-info {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.github-icon {
+  margin-bottom: 1rem;
+  color: #24292e;
+}
+
+.github-info h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #2d3748;
+}
+
+.github-info p {
+  color: #718096;
+  margin-bottom: 1.5rem;
+  font-size: 0.9375rem;
+}
+
+/* GitHub benefits section */
+.github-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: #4a5568;
+}
+
+.benefit-item i {
+  color: #24292e;
+  width: 1.25rem;
+  display: inline-flex;
+  justify-content: center;
+}
+
+/* Divider styling */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+  color: #a0aec0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: #edf2f7;
+}
+
+.divider span {
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Button styles */
+.btn {
+  width: 100%;
+  padding: 0.875rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #4299e1, #3182ce); /* Softer blue gradient */
+  color: white;
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2); /* Softer blue shadow */
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(to right, #3182ce, #2c5282); /* Slightly darker on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(66, 153, 225, 0.3);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* GitHub auth button */
+.github-auth-button {
+  width: 100%;
+  padding: 0.875rem;
+  border-radius: 0.5rem;
+  background-color: #24292e;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.github-auth-button:hover:not(:disabled) {
+  background-color: #1a202c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.github-auth-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.github-auth-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.github-auth-button i {
+  font-size: 1.25rem;
+}
+
+/* Loading spinner */
+.spinner-border {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 0.15rem solid currentColor;
+  border-right-color: transparent;
+  animation: spinner-border 0.75s linear infinite;
+}
+
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.15rem;
+}
+
+@keyframes spinner-border {
+  to { transform: rotate(360deg); }
+}
+
+/* Footer styles */
+.auth-links, .auth-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #edf2f7;
+}
+
+.auth-footer p {
+  color: #718096;
+  font-size: 0.9375rem;
+}
+
+.auth-links a, .auth-link {
+  color: #4299e1; /* Softer blue */
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.auth-links a:hover, .auth-link:hover {
+  color: #3182ce;
+  text-decoration: underline;
+}
+
+/* Info panel (right side) */
+.auth-info {
+  flex: 1;
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%); /* Softer blue gradient */
+  color: white;
+  display: none; /* Hidden on mobile */
+  position: relative;
+  overflow: hidden;
+  padding: 3rem;
+}
+
+.auth-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+.auth-info h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-info .text-accent {
+  color: #fbd38d; /* Softer accent color */
+}
+
+/* Feature list on info panel */
+.feature-list {
+  display: grid;
+  gap: 1.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.feature-item i {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-item h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.feature-item p {
+  margin: 0;
+  font-size: 0.9375rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* Dark mode styles */
+.dark-mode .login-container {
+  background-color: #111827;
+}
+
+.dark-mode .login-card {
+  background-color: #1F2937;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .login-card h2 {
+  color: #F9FAFB;
+}
+
+.dark-mode .login-subtitle {
+  color: #D1D5DB;
+}
+
+.dark-mode .form-group label {
+  color: #E5E7EB;
+}
+
+.dark-mode .form-group input {
+  background-color: #374151;
+  border-color: #4B5563;
+  color: #F9FAFB;
+}
+
+.dark-mode .form-group input:focus {
+  border-color: #60A5FA;
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.25);
+}
+
+.dark-mode .form-group input::placeholder {
+  color: #9CA3AF;
+}
+
+.dark-mode .auth-mode-btn.active {
+  background-color: #2d3748;
+}
+
+.dark-mode .auth-mode-btn:not(.active) {
+  color: #D1D5DB;
+}
+
+.dark-mode .auth-mode-btn:not(.active):hover {
+  background-color: #1a202c;
+}
+
+.dark-mode .github-icon {
+  color: #E5E7EB;
+}
+
+.dark-mode .github-info h3 {
+  color: #F9FAFB;
+}
+
+.dark-mode .github-info p {
+  color: #D1D5DB;
+}
+
+.dark-mode .benefit-item {
+  color: #D1D5DB;
+}
+
+.dark-mode .benefit-item i {
+  color: #9CA3AF;
+}
+
+.dark-mode .divider {
+  color: #6B7280;
+}
+
+.dark-mode .divider::before,
+.dark-mode .divider::after {
+  background-color: #374151;
+}
+
+.dark-mode .github-auth-button {
+  background-color: #2d3748;
+}
+
+.dark-mode .github-auth-button:hover:not(:disabled) {
+  background-color: #4a5568;
+}
+
+.dark-mode .auth-footer,
+.dark-mode .auth-links {
+  border-top-color: #374151;
+}
+
+.dark-mode .auth-footer p {
+  color: #D1D5DB;
+}
+
+.dark-mode .auth-link,
+.dark-mode .auth-links a {
+  color: #60A5FA;
+}
+
+.dark-mode .error-message {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-left-color: #EF4444;
+  color: #F87171;
+}
+
+/* Responsive styles */
+@media (min-width: 992px) {
+  .auth-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .login-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .login-card h2 {
+    font-size: 1.75rem;
+  }
+  
+  .form-group input {
+    padding: 0.75rem 1rem;
+  }
+}

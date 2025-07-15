@@ -1,0 +1,573 @@
+@import '../../styles/theme.css';
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15.625rem, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #e2e8f0;
+}
+
+.project-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-0.3125rem);
+}
+
+.project-image {
+  width: 100%;
+  height: 9.375rem;
+  background-color: #e2e8f0;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.project-actions {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(-0.25rem);
+  transition: all 0.2s;
+}
+
+.project-card:hover .project-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-actions button {
+  width: 1.875rem;
+  height: 1.875rem;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.edit-project {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #4a5568;
+}
+
+.edit-project:hover {
+  background-color: #ffffff;
+  color: #4299e1; /* Softer blue */
+  transform: scale(1.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.remove-project {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #F56565; /* Consistent with Auth.css error color */
+}
+
+.remove-project:hover {
+  background-color: #ffffff;
+  color: #E53E3E; /* Slightly darker red on hover */
+  transform: scale(1.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.project-info {
+  padding: 1rem;
+}
+
+.project-info h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  color: #2d3748;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.project-card:hover .project-info h3 {
+  color: #4299e1; /* Softer blue */
+}
+
+.project-info p {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: #718096;
+  line-height: 1.5;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-tag {
+  background-color: rgba(66, 153, 225, 0.1); /* Softer blue with opacity */
+  color: #4299e1; /* Softer blue */
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #4299e1; /* Softer blue */
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+  color: #3182ce; /* Slightly darker blue on hover */
+}
+
+.project-link i {
+  transition: transform 0.2s;
+}
+
+.project-link:hover i {
+  transform: translateX(0.25rem);
+}
+
+.no-projects {
+  color: #a0aec0;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: #f7fafc;
+  border-radius: 0.5rem;
+  border: 1px dashed #e2e8f0;
+}
+
+.add-project-btn {
+  background-color: rgba(66, 153, 225, 0.1); /* Softer blue with opacity */
+  color: #4299e1; /* Softer blue */
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(66, 153, 225, 0.1); /* Softer blue shadow */
+}
+
+.add-project-btn:hover {
+  background: linear-gradient(to right, #4299e1, #3182ce); /* Softer blue gradient */
+  color: white;
+  transform: translateY(-0.125rem);
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2); /* Softer blue shadow */
+}
+
+.add-project-form {
+  background-color: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  margin-top: 1.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(0.5rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.add-project-form h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3748;
+  position: relative;
+  display: inline-block;
+}
+
+.add-project-form h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 2rem;
+  height: 0.125rem;
+  background: linear-gradient(to right, #4299e1, #63b3ed); /* Softer blue gradient */
+  border-radius: 0.25rem;
+}
+
+.project-image-upload {
+  margin-top: 0.5rem;
+}
+
+.upload-placeholder {
+  width: 100%;
+  height: 9.375rem;
+  background-color: #f7fafc;
+  border: 2px dashed #e2e8f0;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  color: #a0aec0;
+  transition: all 0.2s;
+}
+
+.upload-placeholder:hover {
+  background-color: #edf2f7;
+  border-color: #cbd5e0;
+}
+
+.upload-placeholder i {
+  font-size: 1.5rem;
+  color: #4299e1; /* Softer blue */
+  transition: transform 0.2s;
+}
+
+.upload-placeholder:hover i {
+  transform: scale(1.1);
+}
+
+.project-image-preview {
+  width: 100%;
+  height: 9.375rem;
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.project-image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.project-image-preview:hover img {
+  transform: scale(1.05);
+}
+
+.remove-image {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.875rem;
+  height: 1.875rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #F56565; /* Consistent with Auth.css error color */
+  transition: all 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.remove-image:hover {
+  background-color: #ffffff;
+  color: #E53E3E; /* Slightly darker red on hover */
+  transform: scale(1.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.submit-project {
+  background: linear-gradient(to right, #4299e1, #3182ce); /* Softer blue gradient */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2); /* Softer blue shadow */
+}
+
+.submit-project:hover {
+  background: linear-gradient(to right, #3182ce, #2563eb); /* Slightly darker on hover */
+  box-shadow: 0 6px 16px rgba(66, 153, 225, 0.3);
+}
+
+.cancel-project {
+  background-color: transparent;
+  color: #718096;
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-project:hover {
+  background-color: #f7fafc;
+  color: #4a5568;
+  border-color: #cbd5e0;
+}
+
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.projects-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.projects-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 2.5rem;
+  height: 0.2rem;
+  background: linear-gradient(to right, #4299e1, #63b3ed); /* Softer blue gradient */
+  border-radius: 0.25rem;
+}
+
+/* Dark mode styles */
+.dark-mode .project-card {
+  background-color: #1f2937;
+  border-color: #374151;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .project-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .project-image {
+  background-color: #374151;
+}
+
+.dark-mode .edit-project {
+  background-color: rgba(31, 41, 55, 0.9);
+  color: #e5e7eb;
+}
+
+.dark-mode .edit-project:hover {
+  background-color: #1f2937;
+  color: #60a5fa;
+}
+
+.dark-mode .remove-project {
+  background-color: rgba(31, 41, 55, 0.9);
+  color: #f87171;
+}
+
+.dark-mode .remove-project:hover {
+  background-color: #1f2937;
+  color: #ef4444;
+}
+
+.dark-mode .project-info h3 {
+  color: #f9fafb;
+}
+
+.dark-mode .project-card:hover .project-info h3 {
+  color: #60a5fa;
+}
+
+.dark-mode .project-info p {
+  color: #9ca3af;
+}
+
+.dark-mode .project-tag {
+  background-color: rgba(96, 165, 250, 0.15);
+  color: #60a5fa;
+}
+
+.dark-mode .project-link {
+  color: #60a5fa;
+}
+
+.dark-mode .project-link:hover {
+  color: #3b82f6;
+}
+
+.dark-mode .no-projects {
+  color: #9ca3af;
+  background-color: #111827;
+  border-color: #374151;
+}
+
+.dark-mode .add-project-btn {
+  background-color: rgba(96, 165, 250, 0.15);
+  color: #60a5fa;
+  box-shadow: 0 2px 4px rgba(96, 165, 250, 0.15);
+}
+
+.dark-mode .add-project-btn:hover {
+  background: linear-gradient(to right, #60a5fa, #3b82f6);
+  color: #f9fafb;
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
+}
+
+.dark-mode .add-project-form {
+  background-color: #111827;
+  border-color: #374151;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .add-project-form h3 {
+  color: #f9fafb;
+}
+
+.dark-mode .add-project-form h3::after {
+  background: linear-gradient(to right, #60a5fa, #93c5fd);
+}
+
+.dark-mode .upload-placeholder {
+  background-color: #1f2937;
+  border-color: #4b5563;
+  color: #6b7280;
+}
+
+.dark-mode .upload-placeholder:hover {
+  background-color: #374151;
+  border-color: #6b7280;
+}
+
+.dark-mode .upload-placeholder i {
+  color: #60a5fa;
+}
+
+.dark-mode .remove-image {
+  background-color: rgba(31, 41, 55, 0.9);
+  color: #f87171;
+}
+
+.dark-mode .remove-image:hover {
+  background-color: #1f2937;
+  color: #ef4444;
+}
+
+.dark-mode .submit-project {
+  background: linear-gradient(to right, #60a5fa, #3b82f6);
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
+}
+
+.dark-mode .submit-project:hover {
+  background: linear-gradient(to right, #3b82f6, #2563eb);
+  box-shadow: 0 6px 16px rgba(96, 165, 250, 0.4);
+}
+
+.dark-mode .cancel-project {
+  color: #9ca3af;
+  border-color: #374151;
+}
+
+.dark-mode .cancel-project:hover {
+  background-color: #374151;
+  color: #e5e7eb;
+  border-color: #4b5563;
+}
+
+.dark-mode .projects-title {
+  color: #f9fafb;
+}
+
+.dark-mode .projects-title::after {
+  background: linear-gradient(to right, #60a5fa, #93c5fd);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(13.125rem, 1fr));
+    gap: 1rem;
+  }
+  
+  .project-image {
+    height: 8.125rem;
+  }
+  
+  .add-project-form {
+    padding: 1.25rem;
+  }
+  
+  .project-actions button,
+  .remove-image {
+    width: 1.625rem;
+    height: 1.625rem;
+  }
+  
+  .upload-placeholder {
+    height: 8.125rem;
+  }
+  
+  .project-image-preview {
+    height: 8.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .project-info h3 {
+    font-size: 1rem;
+  }
+  
+  .project-info p {
+    font-size: 0.875rem;
+  }
+  
+  .add-project-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .submit-project,
+  .cancel-project {
+    width: 100%;
+    padding: 0.625rem 1rem;
+  }
+}

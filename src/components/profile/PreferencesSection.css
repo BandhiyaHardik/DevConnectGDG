@@ -1,0 +1,365 @@
+@import '../../styles/theme.css';
+
+.preferences-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.preference-option {
+  position: relative;
+}
+
+.preference-option input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.preference-option label {
+  display: flex;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.preference-option label:hover {
+  border-color: #cbd5e0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.preference-option input:checked + label {
+  background-color: rgba(66, 153, 225, 0.1); /* Softer blue with opacity */
+  border-color: #4299e1; /* Softer blue */
+  box-shadow: 0 1px 3px rgba(66, 153, 225, 0.2); /* Softer blue shadow */
+}
+
+.preference-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  border-radius: 50%;
+  background-color: #f7fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  color: #718096;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+
+.preference-option input:checked + label .preference-icon {
+  background: linear-gradient(to right, #4299e1, #3182ce); /* Softer blue gradient */
+  color: white;
+  box-shadow: 0 2px 6px rgba(66, 153, 225, 0.25); /* Softer blue shadow */
+}
+
+.preference-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.preference-text span {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.25rem;
+  transition: color 0.2s;
+}
+
+.preference-text small {
+  color: #a0aec0;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+
+.preference-option input:checked + label .preference-text span {
+  color: #3182ce; /* Slightly darker blue */
+}
+
+.preference-option input:checked + label .preference-text small {
+  color: #4a5568;
+}
+
+.active-preferences {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.preference-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(66, 153, 225, 0.1); /* Softer blue with opacity */
+  color: #3182ce; /* Slightly darker blue */
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(0.25rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.preference-badge:hover {
+  background-color: rgba(66, 153, 225, 0.15); /* Slightly darker on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(66, 153, 225, 0.15); /* Softer blue shadow */
+}
+
+.preference-badge i {
+  color: #4299e1; /* Softer blue */
+  font-size: 1rem;
+}
+
+.no-preferences {
+  color: #a0aec0;
+  font-size: 0.9375rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: #f7fafc;
+  border-radius: 0.5rem;
+  border: 1px dashed #e2e8f0;
+}
+
+.preferences-header {
+  margin-bottom: 1.25rem;
+}
+
+.preferences-header h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 0.5rem 0;
+  position: relative;
+  display: inline-block;
+}
+
+.preferences-header h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 2rem;
+  height: 0.2rem;
+  background: linear-gradient(to right, #4299e1, #63b3ed); /* Softer blue gradient */
+  border-radius: 4px;
+}
+
+.preferences-header p {
+  color: #718096;
+  font-size: 0.875rem;
+  margin: 0.75rem 0 0 0;
+  line-height: 1.5;
+}
+
+.preferences-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.preferences-save-btn {
+  background: linear-gradient(to right, #4299e1, #3182ce); /* Softer blue gradient */
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.2); /* Softer blue shadow */
+}
+
+.preferences-save-btn:hover {
+  background: linear-gradient(to right, #3182ce, #2c5282); /* Slightly darker on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(66, 153, 225, 0.3);
+}
+
+.preferences-save-btn:active {
+  transform: translateY(0);
+}
+
+.preferences-cancel-btn {
+  background-color: transparent;
+  color: #718096;
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-right: 0.75rem;
+}
+
+.preferences-cancel-btn:hover {
+  background-color: #f7fafc;
+  color: #4a5568;
+  border-color: #cbd5e0;
+}
+
+/* Dark mode styles */
+.dark-mode .preference-option label {
+  border-color: #374151;
+  background-color: #1f2937;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .preference-option label:hover {
+  border-color: #4b5563;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .preference-option input:checked + label {
+  background-color: rgba(96, 165, 250, 0.15);
+  border-color: #60a5fa;
+  box-shadow: 0 1px 3px rgba(96, 165, 250, 0.3);
+}
+
+.dark-mode .preference-icon {
+  background-color: #374151;
+  color: #9ca3af;
+}
+
+.dark-mode .preference-option input:checked + label .preference-icon {
+  background: linear-gradient(to right, #60a5fa, #3b82f6);
+  color: #f9fafb;
+  box-shadow: 0 2px 6px rgba(96, 165, 250, 0.3);
+}
+
+.dark-mode .preference-text span {
+  color: #f9fafb;
+}
+
+.dark-mode .preference-text small {
+  color: #9ca3af;
+}
+
+.dark-mode .preference-option input:checked + label .preference-text span {
+  color: #60a5fa;
+}
+
+.dark-mode .preference-option input:checked + label .preference-text small {
+  color: #d1d5db;
+}
+
+.dark-mode .active-preferences {
+  color: #d1d5db;
+}
+
+.dark-mode .preference-badge {
+  background-color: rgba(96, 165, 250, 0.15);
+  color: #60a5fa;
+}
+
+.dark-mode .preference-badge:hover {
+  background-color: rgba(96, 165, 250, 0.2);
+  box-shadow: 0 2px 4px rgba(96, 165, 250, 0.25);
+}
+
+.dark-mode .preference-badge i {
+  color: #60a5fa;
+}
+
+.dark-mode .no-preferences {
+  color: #9ca3af;
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+.dark-mode .preferences-header h3 {
+  color: #f9fafb;
+}
+
+.dark-mode .preferences-header h3::after {
+  background: linear-gradient(to right, #60a5fa, #93c5fd);
+}
+
+.dark-mode .preferences-header p {
+  color: #d1d5db;
+}
+
+.dark-mode .preferences-save-btn {
+  background: linear-gradient(to right, #60a5fa, #3b82f6);
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
+}
+
+.dark-mode .preferences-save-btn:hover {
+  background: linear-gradient(to right, #3b82f6, #2563eb);
+  box-shadow: 0 6px 16px rgba(96, 165, 250, 0.4);
+}
+
+.dark-mode .preferences-cancel-btn {
+  color: #9ca3af;
+  border-color: #374151;
+}
+
+.dark-mode .preferences-cancel-btn:hover {
+  background-color: #374151;
+  color: #e5e7eb;
+  border-color: #4b5563;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .preference-option label {
+    padding: 0.875rem;
+  }
+  
+  .preference-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    min-width: 2.25rem;
+    margin-right: 0.75rem;
+  }
+  
+  .preferences-header h3 {
+    font-size: 1rem;
+  }
+  
+  .preferences-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .preferences-save-btn,
+  .preferences-cancel-btn {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .preference-text span {
+    font-size: 0.9375rem;
+  }
+  
+  .preference-text small {
+    font-size: 0.75rem;
+  }
+  
+  .preference-icon {
+    width: 2rem;
+    height: 2rem;
+    min-width: 2rem;
+    font-size: 0.875rem;
+  }
+  
+  .preference-badge {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}

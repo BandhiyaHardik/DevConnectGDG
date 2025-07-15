@@ -1,0 +1,255 @@
+@import '../../styles/theme.css';
+
+.recommend-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.recommend-modal {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px rgba(66, 153, 225, 0.18);
+  padding: 2rem 2.2rem 1.5rem 2.2rem;
+  max-width: 350px;
+  width: 90vw;
+  text-align: center;
+  position: relative;
+  animation: scaleIn 0.25s;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.recommend-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #4299e1;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.recommend-close:hover {
+  color: #2b6cb0;
+}
+
+.recommend-profile-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1rem auto;
+  border: 2px solid #4299e1;
+  box-shadow: 0 2px 8px rgba(66, 153, 225, 0.12);
+}
+
+.recommend-profile-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.3rem;
+}
+
+.recommend-profile-location {
+  font-size: 0.98rem;
+  color: #4299e1;
+  margin-bottom: 0.3rem;
+}
+
+.recommend-profile-bio {
+  font-size: 0.98rem;
+  color: #444;
+  margin-bottom: 0.7rem;
+}
+
+.recommend-profile-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+}
+
+.recommend-tech-tag {
+  background: #edf2f7;
+  color: #4299e1;
+  border-radius: 1rem;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.recommend-share-btn {
+  background: linear-gradient(to right, #4299e1, #3182ce);
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.7rem;
+  box-shadow: 0 2px 8px rgba(66, 153, 225, 0.12);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.recommend-share-btn:hover {
+  background: linear-gradient(to right, #3182ce, #2b6cb0);
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* Dark mode styles */
+.dark-mode .recommend-modal {
+  background-color: #1f2937;
+  border-color: #374151;
+}
+
+.dark-mode .recommend-modal-header {
+  border-bottom-color: #374151;
+}
+
+.dark-mode .recommend-modal-header h3 {
+  color: #f9fafb;
+}
+
+.dark-mode .close-button {
+  color: #9ca3af;
+}
+
+.dark-mode .close-button:hover {
+  background-color: #374151;
+  color: #f9fafb;
+}
+
+.dark-mode .search-friends input {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+.dark-mode .search-friends input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.25);
+}
+
+.dark-mode .search-friends input::placeholder {
+  color: #9ca3af;
+}
+
+.dark-mode .friends-list::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.dark-mode .friends-list::-webkit-scrollbar-thumb {
+  background-color: #6b7280;
+}
+
+.dark-mode .friend-item {
+  border-bottom-color: #374151;
+}
+
+.dark-mode .friend-item:hover {
+  background-color: #282f3d;
+}
+
+.dark-mode .friend-item span {
+  color: #f9fafb;
+}
+
+.dark-mode .recommend-to-friend-btn {
+  background: linear-gradient(to right, #60a5fa, #3b82f6);
+}
+
+.dark-mode .recommend-to-friend-btn:hover {
+  background: linear-gradient(to right, #3b82f6, #2563eb);
+}
+
+.dark-mode .recommend-sent {
+  color: #4ade80;
+}
+
+.dark-mode .no-friends-message {
+  color: #9ca3af;
+}
+
+.dark-mode .recommend-modal-footer {
+  border-top-color: #374151;
+}
+
+.dark-mode .cancel-button {
+  background-color: #374151;
+  color: #d1d5db;
+  border-color: #4b5563;
+}
+
+.dark-mode .cancel-button:hover {
+  background-color: #4b5563;
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+  .recommend-modal {
+    width: 95%;
+    max-height: 70vh;
+  }
+
+  .recommend-modal-header {
+    padding: 1rem;
+  }
+
+  .recommend-modal-body {
+    padding: 1rem;
+  }
+
+  .friends-list {
+    max-height: 16rem;
+  }
+
+  .friend-item {
+    padding: 0.625rem 0;
+  }
+
+  .friend-item img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .recommend-to-friend-btn {
+    font-size: 0.6875rem;
+    padding: 0.375rem 0.625rem;
+  }
+
+  .cancel-button {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+}

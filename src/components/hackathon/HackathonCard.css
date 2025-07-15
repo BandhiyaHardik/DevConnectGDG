@@ -1,0 +1,128 @@
+.hackathon-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #e5e7eb;
+  overflow: hidden;
+  margin: 18px 0;
+  transition: transform 0.15s, box-shadow 0.15s;
+  max-width: 420px;
+  width: 100%;
+}
+
+.hackathon-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 6px 32px rgba(99, 102, 241, 0.13);
+}
+
+.hackathon-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.hackathon-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hackathon-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #3730a3;
+  margin: 0 0 4px 0;
+}
+
+.hackathon-desc {
+  font-size: 1.05rem;
+  color: #374151;
+  margin: 0 0 8px 0;
+}
+
+.hackathon-meta {
+  display: flex;
+  gap: 18px;
+  font-size: 0.98rem;
+  color: #6366f1;
+  margin-bottom: 10px;
+}
+
+.hackathon-date {
+  font-weight: 600;
+}
+
+.hackathon-location {
+  font-style: italic;
+}
+
+.hackathon-apply-btn {
+  margin-top: 8px;
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.hackathon-apply-btn:hover {
+  background: #4338ca;
+}
+
+.hackathons-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 12px;
+}
+
+.hackathons-title {
+  text-align: center;
+  color: #3730a3;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.hackathons-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Dark mode styles */
+:root.dark .hackathon-card {
+  background-color: #1f2937;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+:root.dark .hackathon-card-header h3 {
+  color: #e1e7ef;
+}
+
+:root.dark .hackathon-meta {
+  color: #9ca3af;
+}
+
+:root.dark .hackathon-description {
+  color: #d1d5db;
+}
+
+:root.dark .tech-tag {
+  background-color: #374151;
+  color: #93c5fd;
+}
+
+:root.dark .hackathon-details h4 {
+  color: #e1e7ef;
+}
+
+:root.dark .btn-interested {
+  background-color: #374151;
+  color: #e1e7ef;
+}
