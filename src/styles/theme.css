@@ -1,0 +1,110 @@
+/* Light mode (default) */:root {  /* Primary colors */  --primary: #3B82F6;  /* Blue */  --primary-light: #93C5FD;  --primary-dark: #2563EB;    /* Secondary colors */  --secondary: #10B981;  /* Green */  --secondary-light: #6EE7B7;  --secondary-dark: #059669;    /* Accent colors */  --accent: #F59E0B;  /* Amber */  --accent-light: #FCD34D;  --accent-dark: #D97706;    /* Text colors */  --text-primary: #111827;  --text-secondary: #4B5563;  --text-tertiary: #9CA3AF;    /* Background colors */  --background-primary: #FFFFFF;  --background-secondary: #F9FAFB;  --background-tertiary: #F3F4F6;    /* Border colors */  --border-color: #E5E7EB;  --divider-color: #F3F4F6;    /* Error/success colors */  --error: #EF4444;  --success: #10B981;  --warning: #F59E0B;  --info: #3B82F6;    /* Form elements */  --input-background: #FFFFFF;  --input-border: #D1D5DB;  --input-focus-border: #3B82F6;  --input-text: #111827;  --input-placeholder: #9CA3AF;    /* Button colors */  --button-primary-bg: #3B82F6;  --button-primary-text: #FFFFFF;  --button-secondary-bg: #F3F4F6;  --button-secondary-text: #4B5563;    /* Social button colors */  --google-color: #DB4437;  --github-color: #333333;    /* Shadows */  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Transitions */
+  --transition-speed: 0.2s;
+}
+
+/* Dark mode */
+.dark-mode {
+  /* Primary colors */
+  --primary: #60A5FA;  /* Lighter blue for dark mode */
+  --primary-light: #93C5FD;
+  --primary-dark: #2563EB;
+  
+  /* Secondary colors */
+  --secondary: #34D399;
+  --secondary-light: #6EE7B7;
+  --secondary-dark: #059669;
+  
+  /* Accent colors */
+  --accent: #FBBF24;
+  --accent-light: #FCD34D;
+  --accent-dark: #D97706;
+  
+  /* Text colors */
+  --text-primary: #F9FAFB;
+  --text-secondary: #D1D5DB;
+  --text-tertiary: #9CA3AF;
+  
+  /* Background colors */
+  --background-primary: #111827;
+  --background-secondary: #1F2937;
+  --background-tertiary: #374151;
+  
+  /* Border colors */
+  --border-color: #374151;
+  --divider-color: #374151;
+  
+  /* Form elements */
+  --input-background: #1F2937;
+  --input-border: #4B5563;
+  --input-focus-border: #60A5FA;
+  --input-text: #F9FAFB;
+  --input-placeholder: #9CA3AF;
+  
+  /* Button colors */
+  --button-primary-bg: #3B82F6;
+  --button-primary-text: #FFFFFF;
+  --button-secondary-bg: #374151;
+  --button-secondary-text: #D1D5DB;
+  
+  /* Shadows for dark mode */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+/* Utility classes */
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+/* Transitions for theme switching */
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+input, button, select, textarea, .card, .modal {
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+:root {
+  --primary-color: #4f46e5;
+  --primary-dark: #4338ca;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --bg-accent: #f3f4f6;
+  --card-bg: #ffffff;
+  --border-color: #e5e7eb;
+  --input-bg: #f9fafb;
+  --hover-bg: #eff1f5;
+
+  /* Dark theme variables can be added here with a media query */
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #6366f1;
+    --primary-dark: #4f46e5;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --bg-accent: #374151;
+    --card-bg: #1f2937;
+    --border-color: #4b5563;
+    --input-bg: #374151;
+    --hover-bg: #4b5563;
+  }
+}
